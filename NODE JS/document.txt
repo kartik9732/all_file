@@ -1,0 +1,215 @@
+MODULE TRANSFER
+1.file transfer
+index.js
+const a=400;
+ module.exports=a;
+app.js
+const a=require("./index")
+console.log(a);
+ 
+2.BUILD in
+path
+
+const path=require("path");
+  const a=path.extname("/node/index.js");
+  console.log(a);
+
+output=.js(extension name)
+
+
+3.third party
+express,pokemon
+const pokemon=require("pokemon");
+console.log(pokemon.random());
+
+//honour(generate any random name)
+
+
+4.create server
+const http=require("http");
+
+const server=http.createServer((req,Res)=>{
+res.end("working"); //go to this local host and so this
+});
+server.listen(4000,"localhost",()=>{
+console.log("server is working on http://localhost:4000)");
+});
+
+
+//updated
+const http=require("http");
+const PORT=2000;
+const hostname="localhost";
+const server=http.createServer((req,Res)=>{
+    console.log(req.url); //so korbe kon kon url te visit kore6i
+res.end("<h1>hello world</h1>"); //go to this local host and so this
+});
+server.listen(PORT,hostname,()=>{
+console.log("server is working on http://${hostname}:${PORT})");
+});
+
+///local host page seen
+const http=require("http");
+const PORT=2000;
+const hostname="localhost";
+const server=http.createServer((req,Res)=>{
+    if(req.url==="/"){
+        res.end("<h1>Home page</h1>")
+    }
+    if(req.url==="/contact"){
+        res.end("<h1>contact page</h1>")
+    }
+    if(req.url==="/about"){
+        res.end("<h1>contact page</h1>")
+    }
+    if(req.url==="service"){
+        res.end("<h1>contact page</h1>")
+    }
+    else{
+        res.end("<h1>404 page not found</h1>")
+    }
+});
+server.listen(PORT,hostname,()=>{
+console.log("server is working on http://${hostname}:${PORT})");
+});
+
+
+//how to give the data in responce end
+
+
+index.js
+
+const http=require("http");
+const fs=require("fs");
+const PORT=2000;
+
+
+const hostname="localhost";
+const home=fs.readFileSync("./index.html","utf-8");
+
+const server=http.createServer((req,Res)=>{
+    if(req.url==="/"){
+        return res.end(home);
+    }
+    if(req.url==="/contact"){
+       return  res.end("<h1>contact page</h1>")
+    }
+    if(req.url==="/about"){
+       return  res.end("<h1>contact page</h1>")
+    }
+    if(req.url==="service"){
+       return  res.end("<h1>contact page</h1>")
+    }
+    else{
+       return res.end("<h1>404 page not found</h1>")
+    }
+});
+server.listen(PORT,hostname,()=>{
+console.log("server is working on http://${hostname}:${PORT})");
+});
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .home{
+            background-color:rgb(61,61,61);
+            color:white;
+            height:100vh;
+        }
+        body{
+            margin:0%;
+        }
+    </style>
+</head>
+<body>
+   <div class="home">HOME SECTION</div> 
+</body>
+</html>
+
+
+
+//express
+in api and http world (CRUD)
+we call it as get, post,put,delete=read,create,update,delete
+
+1.express
+
+
+const express=require("express");
+const app=express();
+app.get("/",(req,res)=>{
+    res.send("<h1>HELLO world</h1>")
+})
+app.get("/about",(req,res)=>{
+    res.send("<h1>about</h1>")
+})
+
+app.listen(5000,()=>{
+
+    console.log("server is working on port 5000")
+})
+
+
+2.error so we use path
+
+
+const express=require("express");
+const app=express();
+app.get("/",(req,res)=>{
+    res.sendFile("./index.html")
+})
+app.post("/",(req,res)=>{
+    const userName=req.body.name;
+})
+
+app.listen(5000,()=>{
+
+    console.log("server is working on port 5000")
+})
+
+body perser use for local host te store korer jonno orbody perser te data pathate use hoy
+const bodyParser=require("body-perser");
+app.use(bodyParser.urlencoded({extended:false}));
+//api
+app.get("/api/v1/userdata",(req,res)=>{
+res.json({
+name:kartik;
+email:kartikmanna721140
+password:KMR@))
+});
+})
+
+//localhost:5000/api/v1/userdata
+=> json file pabo
+
+//post api //ky register korle ai api diye korte parbe
+
+app.post("/api/v1/userdata",(req,res)=>{
+(ja dabe ta save korer jonno)
+const userName=req.body.name;
+const userEmail=req.body.Email;
+const userPassword=req.body.passWord;
+
+
+res.json({
+success:true ///successfull register korer por message show hobe
+})
+})
+
+
+//register korer jonno
+app.get("/",(req,res)=>{
+res.sendFile(path.join(__dirname+"/index.html));
+
+})
+
+//all data register korer por post er dara data sob store hobe
+
+//onek api hole problem asbe ty amra route use korbo
+

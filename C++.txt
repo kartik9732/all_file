@@ -1,0 +1,145 @@
+1.HELLO WORLD
+
+#include<iostream>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+int main()
+{
+    cout<<"hello world in c++";
+   return 0;
+}
+
+2.NEXT LINE(endl)
+
+
+#include<iostream>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+int main()
+{
+    cout<<"hello"<<endl<<"world in c++";
+   return 0;
+}
+
+3.INPUT FROM USER
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int apples;
+    cin>>apples;
+    cout<<"number of apples is :"<<apples<<endl;
+
+    return 0;
+}
+
+//pointer
+
+1.
+#include <iostream>			|||| ->10
+
+using namespace std;
+
+int main() {
+   int arr[]={10,20,30};
+cout<<*arr<<endl;
+return 0;
+}
+
+2.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   int arr[]={10,20,30};		|10
+//cout<<*arr<<endl;			|20
+int *ptr=arr;				|30
+for(int i=0;i<3;i++){
+    cout<<*ptr<<endl;
+    ptr++;
+}
+
+return 0;
+}
+
+3.
+without Usint *ptr
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   int arr[]={10,20,30};		|10
+//cout<<*arr<<endl;			|20
+int *ptr=arr;				|30
+for(int i=0;i<3;i++){
+    cout<<*(arr+i)<<endl;
+   
+}
+
+return 0;
+}
+
+//pass by refference
+
+
+#include <iostream>			|
+
+
+						|
+using namespace std;			|
+void swap(int *a,int *b){		|
+    int temp=*a;				|
+    *a=*b;					|
+    *b=temp;				|
+}						|
+ 						|
+int main() {
+int a=2;
+int b=4;
+int *aptr=&a;
+int *bptr=&b;
+swap(aptr,bptr);
+cout<<a<<" "<<b<<endl;
+
+return 0;
+}
+
+
+///we can also do
+
+#include <iostream>
+
+using namespace std;
+void swap(int *a,int *b){
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+}
+ 
+int main() {
+int a=2;
+int b=4;
+
+swap(&a,&b);
+cout<<a<<" "<<b<<endl;
+
+return 0;
+}
+
+//oops
+ 1.main () is a class method and can be called without creating an object.
+2. an array of sequence of characters (Strings) that are passed to the "main" function.
+3.method=> function within class is called method.
+4.parameter=>input in function is called parameter.
+5.argument=>function call korer somoy je value dai (er modhe) ake argument bole.
+6.function call stack memory.
+7.java always call by value.
+8.inbuild method=> math class(squart,power),sc.nextInt()[next int also a inbuild method].
